@@ -78,6 +78,7 @@ sudo docker run --privileged --rm -v "$PWD:/app" -it swiss-harmy-knife \
   --wpscan \
   --hydra \
   --save results.json
+  
 📝 Replace http://example.com with a domain/IP you legally control or are authorized to test.
 
 📁 Output Directory
