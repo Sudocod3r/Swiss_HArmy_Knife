@@ -41,7 +41,7 @@ Internet connection for full recon functionality
 
 ⚠️ Note: Some tools may require manual installation on newer Kali or WSL setups.
 
-🚀 Quick Start
+## 🚀 Quick Start
 1. Clone the Repo
 bash
 Copy
