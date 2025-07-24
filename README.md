@@ -1,9 +1,9 @@
-# Swiss_HArmy_Knife
-The all-in-one, fully customizable, Web App Pentest Tool Kit for Kali Linux
-# 🤖🔪 Swiss HArm-y Knife (SHAK)🗡️👨‍💻
-
-A full-featured, containerized offensive security toolkit built for Kali Linux. SHAK automates recon, enumeration, and vulnerability scanning across web targets. Perfect for internal testing, bug bounty hunting, and red team workflows.
-
+# 🤖🔪 Swiss_HArmy_Knife 🗡️👨‍💻
+---
+A full-featured, containerized offensive security toolkit built for Kali Linux. 
+This toolkit automates recon, enumeration, and vulnerability scanning across web targets. 
+Perfect for internal testing, bug bounty hunting, and red team workflows.
+Swiss_HArmy_Knife_OTW (Paid Online Version) [Coming Soon...]
 ---
 
 ## 🔥 Features
@@ -14,50 +14,57 @@ Run a full suite of recon and vulnerability tools from a single command inside a
 ### 🌐 Recon Tools
 - `amass` – Subdomain enumeration  
 - `whatweb` – Web tech fingerprinting  
-- `ping`, `traceroute` – Basic network pathing  
+- `ping`, `traceroute` – Basic network visibility  
 
 ### 🔓 Vulnerability Scanners
 - `nuclei` – Template-based scanning  
-- `nikto` – Web vuln scanner  
+- `nikto` – Web vulnerability scanner  
 - `wpscan` – WordPress vulnerability checks  
 
 ### 🛠 Brute Force & Fuzzing
-- `hydra` – Login brute-force attacks  
-- `ffuf` – URL fuzzing for hidden paths  
+- `hydra` – Login brute-force  
+- `ffuf` – URL fuzzing  
 
 ### 📊 Reporting
 - Auto-generated `.json`, `.html`, and `.pdf` reports  
-- Organized output directory by scan type  
+- Output organized by scan category  
 
 ---
 
 ## ⚙️ Requirements
 
 - Kali Linux (tested on 2023.3 and later)  
-- Docker installed:  
+- Docker installed:
   ```bash
   sudo apt install docker.io
-Internet connection for tool functionality
+Internet connection for full recon functionality
 
-⚠️ Note: Newer Kali versions or WSL may require manual package installs.
+⚠️ Note: Some tools may require manual installation on newer Kali or WSL setups.
 
 🚀 Quick Start
 1. Clone the Repo
 bash
 Copy
 Edit
-git clone https://github.com/YOUR_USERNAME/shak.git
-cd shak
-2. Build the Docker Image
+git clone https://github.com/Sudocod3r/Swiss_HArmy_Knife
+cd Swiss_HArmy_Knife
+2. Create the Results Directory
+Before running scans, create the output directory:
+
 bash
 Copy
 Edit
-sudo docker build -t shak .
-3. Run SHAK on a Target
+mkdir results
+3. Build the Docker Image
 bash
 Copy
 Edit
-sudo docker run --privileged --rm -v "$PWD:/app" -it shak \
+sudo docker build -t swiss-harmy-knife -f Dockerfile .
+4. Run the Toolkit on a Target
+bash
+Copy
+Edit
+sudo docker run --privileged --rm -v "$PWD:/app" -it swiss-harmy-knife \
   http://example.com \
   --ping \
   --traceroute \
@@ -83,7 +90,7 @@ results/
 ├── results.json
 ├── results.html
 └── results.pdf
-You can rename or specify the output file using the --save flag.
+🧠 You must create the results/ folder manually before running the scan.
 
 🧪 Supported Tools
 Tool	Purpose
@@ -92,33 +99,31 @@ WhatWeb	Web tech detection
 Ping	Host reachability check
 Traceroute	Network path mapping
 Nmap	Port scanning
-FFUF	Directory and path fuzzing
+FFUF	Directory/path fuzzing
 Nikto	Web vulnerability scanner
 WPScan	WordPress vuln checks
-Nuclei	Fast template-based vuln scanner
+Nuclei	Fast template-based vuln scanning
 Hydra	Credential brute-forcing
 
-🧪 Example Targets
-🔫 IBM Firing Range
+📂 Wordlist Files
+The following wordlists are included or expected:
 
-🐞 bWAPP
+common.txt – For FFUF directory fuzzing
 
-💣 DVWA
+users.txt – Usernames for Hydra
 
-⚠️ This toolkit is for legal and ethical use only. Do not scan unauthorized targets.
+pass.txt – Passwords for Hydra
 
-📂 Custom Wordlists
-To use your own username/password lists with Hydra:
+Place these files in the same directory as pentesting_toolkit.py.
 
-Place users.txt and pass.txt in the root shak directory.
-
-Modify shak.py to use your files if needed:
-
-python
-Copy
-Edit
-hydra -L users.txt -P pass.txt <target> http-get
-Hydra will skip if those files are missing or malformed.
+📜 File Structure
+File	Description
+Dockerfile	Container setup
+README.md	This documentation
+pentesting_toolkit.py	Main Python CLI script
+common.txt	Wordlist for FFUF fuzzing
+users.txt	Username wordlist for Hydra
+pass.txt	Password wordlist for Hydra
 
 👨‍💻 Author
 Kyle Martin
@@ -131,15 +136,16 @@ MIT License — Free to use, modify, and share. Just stay ethical. 😉
 🙋 Want to Contribute?
 Fork the repo
 
-Add new tool integrations
+Add more tool integrations
 
-Improve scan output formatting
+Improve output formatting
 
-Add Slack/email alerting
+Add logging or alerting
 
 PRs welcome anytime 🚀
 
 🧠 Questions or Suggestions?
-Open an issue or drop into Discussions!
+Open an issue or drop your ideas in Discussions
+
 
 
