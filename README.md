@@ -35,35 +35,32 @@ Run a full suite of recon and vulnerability tools from a single command inside a
 
 - Kali Linux (tested on 2023.3 and later)  
 - Docker installed:
-  ```bash
-  sudo apt install docker.io
+
+sudo apt install docker.io
+
 Internet connection for full recon functionality
 
 ⚠️ Note: Some tools may require manual installation on newer Kali or WSL setups.
 
-## 🚀 Quick Start
-1. Clone the Repo
-bash
-Copy
-Edit
-git clone https://github.com/Sudocod3r/Swiss_HArmy_Knife
-cd Swiss_HArmy_Knife
-2. Create the Results Directory
-Before running scans, create the output directory:
+# 🚀 Quick Start
+## 1. Clone the Repo:
 
-bash
-Copy
-Edit
+git clone https://github.com/Sudocod3r/Swiss_HArmy_Knife
+
+cd Swiss_HArmy_Knife
+
+## 2. Create the Results Directory:
+
+Before running scans, create the output directory:
+  
 mkdir results
-3. Build the Docker Image
-bash
-Copy
-Edit
+
+## 3. Build the Docker Image:
+
 sudo docker build -t swiss-harmy-knife -f Dockerfile .
-4. Run the Toolkit on a Target
-bash
-Copy
-Edit
+
+## 4. Run the Toolkit on a Target:
+
 sudo docker run --privileged --rm -v "$PWD:/app" -it swiss-harmy-knife \
   http://example.com \
   --ping \
@@ -81,33 +78,36 @@ sudo docker run --privileged --rm -v "$PWD:/app" -it swiss-harmy-knife \
   
 📝 Replace http://example.com with a domain/IP you legally control or are authorized to test.
 
-📁 Output Directory
+## 📁 Output Directory
 All results will be saved to:
 
-pgsql
-Copy
-Edit
 results/
+
 ├── results.json
+
 ├── results.html
+
 └── results.pdf
-🧠 You must create the results/ folder manually before running the scan.
 
-🧪 Supported Tools
-Tool	Purpose
-Amass	Subdomain enumeration
-WhatWeb	Web tech detection
-Ping	Host reachability check
-Traceroute	Network path mapping
-Nmap	Port scanning
-FFUF	Directory/path fuzzing
-Nikto	Web vulnerability scanner
-WPScan	WordPress vuln checks
-Nuclei	Fast template-based vuln scanning
-Hydra	Credential brute-forcing
+## 🧠 You must create the results/ folder manually before running the scan.
 
-📂 Wordlist Files
+## 🧪 Supported Tools
+### [Tool- Purpose]
+Amass- Subdomain enumeration
+WhatWeb- Web tech detection
+Ping- Host reachability check
+Traceroute- Network path mapping
+Nmap- Port scanning
+FFUF- Directory/path fuzzing
+Nikto- Web vulnerability scanner
+WPScan- WordPress vuln checks
+Nuclei- Fast template-based vuln scanning
+Hydra- Credential brute-forcing
+
+## 📂 Wordlist Files
 The following wordlists are included or expected:
+
+[Replace these files with your own wordlists for best results]
 
 common.txt – For FFUF directory fuzzing
 
@@ -117,7 +117,7 @@ pass.txt – Passwords for Hydra
 
 Place these files in the same directory as pentesting_toolkit.py.
 
-📜 File Structure
+## 📜 File Structure
 File	Description
 Dockerfile	Container setup
 README.md	This documentation
@@ -126,15 +126,20 @@ common.txt	Wordlist for FFUF fuzzing
 users.txt	Username wordlist for Hydra
 pass.txt	Password wordlist for Hydra
 
-👨‍💻 Author
+### 👨‍💻 Author
+
 Kyle Martin
+
 Cybersecurity Automation Specialist • Red Team Ops
+
 🔱 Squid Tech Services
 
-📜 License
+### 📜 License
+
 MIT License — Free to use, modify, and share. Just stay ethical. 😉
 
-🙋 Want to Contribute?
+### 🙋 Want to Contribute?
+
 Fork the repo
 
 Add more tool integrations
@@ -145,7 +150,7 @@ Add logging or alerting
 
 PRs welcome anytime 🚀
 
-🧠 Questions or Suggestions?
+### 🧠 Questions or Suggestions?
 Open an issue or drop your ideas in Discussions
 
 
