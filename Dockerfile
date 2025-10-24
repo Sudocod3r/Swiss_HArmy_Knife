@@ -1,9 +1,14 @@
-# ---------- Stage 1: Build Nuclei from source ----------
-FROM golang:1.23-alpine AS nuclei-builder
+# ---------- Stage 1: Build Nuclei from source (updated Go) ----------
+FROM golang:1.24.7-alpine AS nuclei-builder
 
-RUN apk add --no-cache build-base git
+# install build tools and ca-certificates so repo downloads over https work reliably
+RUN apk add --no-cache build-base git make ca-certificates bash
+
 WORKDIR /app
-RUN git clone https://github.com/projectdiscovery/nuclei.git . && make build
+
+# Clone and build nuclei (use make build; fallback will show errors)
+RUN git clone https://github.com/projectdiscovery/nuclei.git . \
+ && make build
 
 # ---------- Stage 2: Build main pentest toolkit ----------
 FROM debian:bullseye-slim
